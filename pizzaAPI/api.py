@@ -23,7 +23,7 @@ class GetPizzaBasedOnFilterAPI(generics.ListAPIView):
         size_filter = self.request.GET.get('size')
 
         if type_filter is None and size_filter is None:
-            raise ValidationError("please provide atleast one filter or to get all data user 'get-all' endpoint")
+            raise ValidationError("please provide atleast one filter or to get all data use '/pizza/get-all' endpoint")
 
         if type_filter is not None:
             queryset = Pizza.objects.filter(type__iexact=type_filter)
@@ -31,3 +31,13 @@ class GetPizzaBasedOnFilterAPI(generics.ListAPIView):
             queryset = queryset.filter(size__iexact=size_filter)
 
         return queryset
+
+
+class DeletePizzaAPI(generics.DestroyAPIView):
+    serializer_class = PizzaSerializer
+    queryset = Pizza.objects.all()
+
+
+class UpdatePizzaAPI(generics.UpdateAPIView):
+    serializer_class = PizzaSerializer
+    queryset = Pizza.objects.all()
