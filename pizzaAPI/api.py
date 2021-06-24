@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.exceptions import ValidationError
 
-from .serializers import PizzaSerializer
+from .serializers import PizzaSerializer, ToppingSerializer
 from .models import Pizza
 
 
@@ -41,3 +41,7 @@ class DeletePizzaAPI(generics.DestroyAPIView):
 class UpdatePizzaAPI(generics.UpdateAPIView):
     serializer_class = PizzaSerializer
     queryset = Pizza.objects.all()
+
+
+class CreatePizzaToppingAPI(generics.CreateAPIView):
+    serializer_class = ToppingSerializer
