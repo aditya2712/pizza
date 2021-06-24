@@ -140,7 +140,7 @@ For exaple if you want to delete a pizza with id = 2, use:
 `http://127.0.0.1:8000/pizza/delete/2`
 
 
-### Delete Pizza
+### Update/Edit Pizza
 
 This is used if user wants to edit/update any pizza details
 
